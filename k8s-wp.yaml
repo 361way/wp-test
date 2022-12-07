@@ -1,3 +1,24 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-wp01
+  namespace: default
+  annotations:
+    everest.io/disk-volume-type: SAS
+  enable: true
+  labels:
+    failure-domain.beta.kubernetes.io/zone: la-north-2a
+    failure-domain.beta.kubernetes.io/region: la-north-2
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: csi-disk
+  
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -72,23 +93,3 @@ spec:
       port: 80
       protocol: TCP
   type: NodePort
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: pvc-wp01
-  namespace: default
-  annotations:
-    everest.io/disk-volume-type: SAS
-  enable: true
-  labels:
-    failure-domain.beta.kubernetes.io/zone: la-north-2a
-    failure-domain.beta.kubernetes.io/region: la-north-2
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: csi-disk
