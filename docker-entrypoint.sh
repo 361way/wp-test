@@ -1,4 +1,6 @@
 #!/bin/bash
+# mail: itybku@139.com
+# site: www.361way.com
 
 export  PATH=/usr/local/bin/:$PATH
 
