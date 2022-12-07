@@ -6,7 +6,6 @@ metadata:
   namespace: default
   annotations:
     everest.io/disk-volume-type: SAS
-  enable: true
   labels:
     failure-domain.beta.kubernetes.io/zone: la-north-2a
     failure-domain.beta.kubernetes.io/region: la-north-2
